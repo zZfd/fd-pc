@@ -3,13 +3,24 @@ import * as path from 'path'
 import * as url from 'url'
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer'
 
+import debug from 'electron-debug'
+try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  require('electron-reloader')(module)
+} catch (e) {
+  console.log(e)
+}
+debug()
 let mainWindow: Electron.BrowserWindow | null
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1100,
-    height: 700,
-    backgroundColor: '#191622',
+    width: 600,
+    height: 400,
+    backgroundColor: '#fff',
+    autoHideMenuBar: true,
+    maximizable: false,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true
     }
