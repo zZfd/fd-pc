@@ -1,16 +1,12 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
 import * as url from 'url'
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer'
 
 import debug from 'electron-debug'
-try {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require('electron-reloader')(module)
-} catch (e) {
-  console.log(e)
-}
+
 debug()
+
 let mainWindow: Electron.BrowserWindow | null
 
 function createWindow () {
@@ -18,7 +14,7 @@ function createWindow () {
     width: 600,
     height: 400,
     backgroundColor: '#fff',
-    autoHideMenuBar: true,
+    // autoHideMenuBar: true,
     maximizable: false,
     resizable: false,
     webPreferences: {
@@ -42,10 +38,15 @@ function createWindow () {
     mainWindow = null
   })
 }
-
+global.token = null
 app.on('ready', createWindow)
   .whenReady()
   .then(() => {
+    ipcMain.on('login', (event, args) => {
+      global.token = args
+      event.returnValue = 'login'
+    })
+
     if (process.env.NODE_ENV === 'development') {
       installExtension(REACT_DEVELOPER_TOOLS)
         .then((name) => console.log(`Added Extension:  ${name}`))
