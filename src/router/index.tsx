@@ -1,7 +1,7 @@
 
-import Home from '../pages/Home/home'
-import Login from '../pages/Login/login'
-import Layout from '../Layout/layout'
+import Home from '../pages/home'
+import Login from '../pages/login'
+import Layout from '../layout'
 import React, { PureComponent } from 'react'
 
 interface IRoute {
@@ -10,7 +10,7 @@ interface IRoute {
   children?: Array<IRoute>,
   layout?: any,
   component?: any,
-  auth?: Boolean,
+  auth?: boolean,
   roles?: Array<string>
 }
 
@@ -20,7 +20,8 @@ const constantRoutes:Array<IRoute> = [
     path: '/login',
     component: Login
   },
-  { path: '/',
+  {
+    path: '/',
     layout: Layout,
     component: Home,
     auth: true
@@ -66,7 +67,6 @@ const asyncRoutes:Array<IRoute> = [
 //
 //   return availableRoutes
 // }
-
 
 // export class AsyncRoute extends React.Component{
 //   render() {

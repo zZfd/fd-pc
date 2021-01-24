@@ -3,8 +3,10 @@ import { render } from 'react-dom'
 import { GlobalStyle } from './styles/GlobalStyle'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 // import Greetings from './components/Greetings'
-import Login from './pages/login/login'
-import Home from './pages/Home/home'
+import Login from './pages/login'
+import Home from './pages/home'
+import Error404 from './pages/error-pages/404'
+import './styles/global.css' // 引入antd样式
 
 const mainElement = document.createElement('div')
 mainElement.setAttribute('id', 'root')
@@ -17,11 +19,9 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path='/login' component={Login} />
-          <Route exact path='/' component={Home} >
-
-          </Route>
-
-          <Redirect to='/'/>
+          <Route path='/' component={Home} />
+          <Route path='/404'exact component={Error404} />
+          <Redirect to='/404' />
         </Switch>
       </Router>
     </>

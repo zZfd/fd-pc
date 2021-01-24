@@ -17,19 +17,19 @@ const Login: React.FC = () => {
 
   const onFinish = (values: any) => {
     console.log('Success:', values)
-    // remote.getCurrentWindow().close()
+    remote.getCurrentWindow().close()
     ipcRenderer.sendSync('login', '123')
     history.push('/')
-    // let mainWin: BrowserWindow | null = new remote.BrowserWindow({
-    //   autoHideMenuBar: true,
-    //   webPreferences: {
-    //     nodeIntegration: true
-    //   }
-    // })
-    // mainWin.loadURL('http://localhost:4000')
-    // mainWin.on('close', () => {
-    //   mainWin = null
-    // })
+    let mainWin: BrowserWindow | null = new remote.BrowserWindow({
+      autoHideMenuBar: true,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    })
+    mainWin.loadURL('http://localhost:4000')
+    mainWin.on('close', () => {
+      mainWin = null
+    })
   }
 
   const onFinishFailed = (errorInfo: any) => {

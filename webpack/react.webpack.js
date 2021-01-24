@@ -6,7 +6,10 @@ const rootPath = path.resolve(__dirname, '..')
 module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    mainFields: ['main', 'module', 'browser']
+    mainFields: ['main', 'module', 'browser'],
+    alias:{
+      '@':path.resolve(rootPath,'src')
+    }
   },
   entry: path.resolve(rootPath, 'src', 'App.tsx'),
   target: 'electron-renderer',
@@ -15,11 +18,32 @@ module.exports = {
     rules: [
       {
         test: /\.(js|ts|tsx)$/,
-        exclude: /node_modules/,
+        exclude: path.resolve(rootPath,'node_modules'),
         use: {
           loader: 'babel-loader'
         }
+      },
+       {
+        // CSS全局处理
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: path.resolve(rootPath,'node_modules'),
+      },
+
+      {
+        // less模块化处理
+        test: /\.less$/,
+        exclude: path.resolve(rootPath,'node_modules'),
+        use: [
+          'style-loader',
+          {loader:'css-loader',options:{modules:{localIdentName:'[local]-[hash:5]'}}},
+          'less-loader'
+        ]
       }
+
     ]
   },
   devServer: {
