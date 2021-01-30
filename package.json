@@ -80,6 +80,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "socket.io": "^3.1.0",
+    "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1"
   },
   "build": {
@@ -100,7 +102,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
