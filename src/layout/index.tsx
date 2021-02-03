@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import {
@@ -16,7 +17,7 @@ export default class Home extends React.Component {
   };
 
   onCollapse = (collapsed:boolean):void => {
-    console.log(collapsed)
+    // console.log(collapsed)
     this.setState({ collapsed })
   };
 
@@ -27,6 +28,14 @@ export default class Home extends React.Component {
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <div className={styles.logo} />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+<<<<<<< HEAD
+            <Menu.Item key="1" icon={<PieChartOutlined />}>
+              <Link to="/put-in">入库单</Link>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<DesktopOutlined />}>
+              <Link to="/take-out">出库单</Link>
+            </Menu.Item>
+=======
             <SubMenu key='product' title='产品'>
               <Menu.ItemGroup key='pLibrary' title='产品库'>
                 <Menu.Item key="pList" icon={<PieChartOutlined />}>
@@ -135,6 +144,7 @@ export default class Home extends React.Component {
                 </Menu.Item>
               </Menu.ItemGroup>
             </SubMenu>
+>>>>>>> 6f39c390f0ecda35d1527a7d6148eb4f7600bd8a
           </Menu>
         </Sider>
         <Layout className="site-layout">
@@ -144,7 +154,7 @@ export default class Home extends React.Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div className={styles['layout-background']} style={{ padding: 24, minHeight: 360 }}>
+            <div style={{ padding: 12, minHeight: 360 }}>
               {this.props.children}
             </div>
           </Content>
