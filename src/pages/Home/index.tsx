@@ -26,7 +26,7 @@ export default class Home extends React.Component {
     return (
       <Layout>
         <Switch>
-          <Route exact path="/put-in" component={PutIn}/>
+          <Route path="/put-in" component={PutIn}/>
           <Route exact path="/take-out" component={TakeOut}/>
         </Switch>
       </Layout>

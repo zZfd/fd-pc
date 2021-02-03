@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import {
@@ -14,7 +15,7 @@ export default class Home extends React.Component {
   };
 
   onCollapse = (collapsed:boolean):void => {
-    console.log(collapsed)
+    // console.log(collapsed)
     this.setState({ collapsed })
   };
 
@@ -26,10 +27,10 @@ export default class Home extends React.Component {
           <div className={styles.logo} />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" icon={<PieChartOutlined />}>
-              <Link to="/put-in">入库</Link>
+              <Link to="/put-in">入库单</Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<DesktopOutlined />}>
-              <Link to="/take-out">出库</Link>
+              <Link to="/take-out">出库单</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -40,7 +41,7 @@ export default class Home extends React.Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div className={styles['layout-background']} style={{ padding: 24, minHeight: 360 }}>
+            <div style={{ padding: 12, minHeight: 360 }}>
               {this.props.children}
             </div>
           </Content>
