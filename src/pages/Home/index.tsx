@@ -55,9 +55,9 @@ export default class Home extends React.Component {
           <Route exact path="/put-in" component={PutIn}/>
           <Route exact path="/take-out" component={TakeOut}/>
         </Switch>
-        <Button type="primary" onClick={this.connectSocket}>
+        {/* <Button type="primary" onClick={this.connectSocket}>
           登 录
-        </Button>
+        </Button> */}
       </Layout>
     )
   }
