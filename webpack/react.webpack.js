@@ -58,7 +58,7 @@ module.exports = {
   output: {
     path: path.resolve(rootPath, 'dist/renderer'),
     filename: 'js/[name].js',
-    publicPath: './'
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin()

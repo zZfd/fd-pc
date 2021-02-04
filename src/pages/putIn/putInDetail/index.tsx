@@ -70,19 +70,21 @@ const menu = (
 //   }
 // }
 
-function PutInDetail ():JSX.Element {
+function PutInDetail (props):JSX.Element {
   // The <Route> that rendered this component has a
   // path of `/topics/:topicId`. The `:topicId` portion
   // of the URL indicates a placeholder that we can
   // get from `useParams()`.
-
+  const onEntry = () => {
+    props.history.push('/put-in/entry')
+  }
   return (
     <React.Fragment>
       <div className={classNames('layout-section__header', 'title-text-color')}>入库单</div>
       <div className={'layout-section__body'}>
         <div className={'content-section'}>
           <Space size={'middle'}>
-            <Button>采购入库</Button>
+            <Button onClick={onEntry}>采购入库</Button>
             <Button>退货入库</Button>
             <Button>调拨入库</Button>
             <Button>其他入库</Button>

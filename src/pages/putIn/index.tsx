@@ -74,20 +74,19 @@ const menu = (
 //   }
 // }
 
-function PutIn () {
+function PutIn (props):JSX.Element {
   // The <Route> that rendered this component has a
   // path of `/topics/:topicId`. The `:topicId` portion
   // of the URL indicates a placeholder that we can
   // get from `useParams()`.
-
   return (
     <Row gutter={{ xs: 8, sm: 16 }} justify={'space-between'}>
       <Col className={'layout-section'} xs={24} sm={24} md={17} xl={19} >
         <Switch>
-          <Route exact path="/put-in-detail" component={PutInDetail}/>
-          <Route exact path="/put-in-Entry" component={PutInEntry}/>
+          <Route exact path="/put-in/detail" component={PutInDetail}/>
+          <Route exact path="/put-in/Entry" component={PutInEntry}/>
 
-          <Redirect to="/put-in-detail" />
+          <Redirect to="/put-in/detail" />
         </Switch>
       </Col>
       <Col className={'layout-section'} style={{ padding: '20px 15px 15px', height: 'max-content' }} xs={24} sm={24} md={6} xl={4} >
@@ -115,6 +114,7 @@ function PutIn () {
           </div>
         </div>
       </Col>
+
     </Row>
 
   )
